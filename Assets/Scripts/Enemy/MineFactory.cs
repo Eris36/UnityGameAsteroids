@@ -1,5 +1,6 @@
 using UnityEngine;
 namespace Asteroids
+
 {
     internal sealed class MineFactory : IEnemyFactory
     {

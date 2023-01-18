@@ -1,3 +1,4 @@
+
 namespace Asteroids
 {
     public interface IEnemyFactory
