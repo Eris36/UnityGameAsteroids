@@ -1,4 +1,5 @@
 using UnityEngine;
+
 namespace Asteroids
 {
     internal sealed class AsteroidFactory : IEnemyFactory

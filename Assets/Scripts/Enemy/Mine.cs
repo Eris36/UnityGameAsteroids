@@ -9,13 +9,14 @@ namespace Asteroids
         public Rigidbody2D _rb;
         private int _speed;
         private Transform respawn;
-        [SerializeField] private int health;
+        public string health1;
         
 
         private void Start()
         {
-             var health1 = Health.Current;
-             Debug.Log("Колличество жизней " + health1);
+            var health = Health.Current;
+            health1 = health.ToString();
+            Debug.Log("Колличество жизней " + health);
             transform.position = new Vector2(Random.Range(-10f, 10f), Random.Range(-5f, 5f));
 
             _rb = GetComponent<Rigidbody2D>();

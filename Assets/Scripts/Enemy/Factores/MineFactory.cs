@@ -1,6 +1,6 @@
 using UnityEngine;
-namespace Asteroids
 
+namespace Asteroids
 {
     internal sealed class MineFactory : IEnemyFactory
     {

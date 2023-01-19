@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+
 namespace Asteroids
 {
     internal sealed class Player : MonoBehaviour
@@ -9,11 +11,12 @@ namespace Asteroids
         [SerializeField] private float _hp;
         [SerializeField] private Rigidbody2D _bullet;
         [SerializeField] private Transform _barrel;
-        [SerializeField] private float _force;
+        [SerializeField] private float _forceFire;
         private Camera _camera;
         private IMove _moveTransform;
         private IRotation _rotation;
         private Rigidbody2D _rb;
+        
 
         private void Awake()
         {
@@ -33,12 +36,11 @@ namespace Asteroids
             _rotation.Rotation(direction);
             
             
-            _moveTransform.Move(Input.GetAxis("Horizontal"),
+        _moveTransform.Move(Input.GetAxis("Horizontal"),
                 Input.GetAxis("Vertical"), Time.deltaTime);
-
             
-            
-            if (Input.GetKeyUp(KeyCode.LeftShift))
+        
+        if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 if (_moveTransform is AccelerationMove accelerationMove)
                 {
@@ -48,7 +50,7 @@ namespace Asteroids
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Attack.AttackNow(_bullet, _barrel, _force);
+            Attack.AttackNow(_bullet, _barrel, _forceFire);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
