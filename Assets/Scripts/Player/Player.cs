@@ -48,10 +48,10 @@ namespace Asteroids
                 }
             }
 
-        if (Input.GetButtonDown("Fire1"))
+        /*if (Input.GetButtonDown("Fire1"))
         {
             Attack.AttackNow(_bullet, _barrel, _forceFire);
-        }
+        }*/
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

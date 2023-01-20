@@ -32,10 +32,10 @@ namespace Asteroids
             {
                 case "Player" :
                     other.GetComponent<Player>().Damage(20);
-                    Destroy(gameObject);
+                    /*Destroy(gameObject);*/
                     break;
                 case "Bullet":
-                    Destroy(other.gameObject);
+                    other.gameObject.SetActive(false);
                     Destroy(gameObject);
                     break;
             }
