@@ -5,15 +5,24 @@ namespace Asteroids
 {
     internal sealed class GameStarter : MonoBehaviour
     {
+
+        [SerializeField] private int summMines = 10;
+        
         private void Start()
         {
             
             /*Enemy.CreateMinaEnemy(new Health(100.0f, 100.0f));*/
            
-            EnemyPool enemyPoolMine = new EnemyPool(5);
-            var enemy = enemyPoolMine.GetEnemy("Mine");
-            enemy.transform.position = Vector3.one;
-            enemy.gameObject.SetActive(true);
+            EnemyPool enemyPoolMine = new EnemyPool(summMines);
+            
+
+
+            for (int i = 0; i < summMines; i++)
+            {
+                var enemy = enemyPoolMine.GetEnemy("Mine");
+                enemy.transform.position = Vector3.one;
+                enemy.gameObject.SetActive(true);
+            }
             
             
             /*IEnemyFactory factoryAsteroid = new AsteroidFactory();

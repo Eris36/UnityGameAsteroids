@@ -59,10 +59,14 @@ namespace Asteroids
         {
             Destroy(gameObject);
         }
-        else
-        {
-            _hp--;
-        }
     }
+    public void Damage(int damage)
+    {
+
+        _hp = _hp - damage;
     }
+    
+    }
+    
+
 }

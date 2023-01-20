@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b41a4a06c95a01429bc7852df94fc37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  summMines: 10
 --- !u!4 &742514817
 Transform:
   m_ObjectHideFlags: 0
@@ -832,7 +833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 587919578137301335, guid: e71d3a680e288534f8480643f6961075, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.34
       objectReference: {fileID: 0}
     - target: {fileID: 587919578137301335, guid: e71d3a680e288534f8480643f6961075, type: 3}
       propertyPath: m_LocalPosition.y
@@ -884,7 +885,7 @@ PrefabInstance:
       objectReference: {fileID: 7136855681165244147, guid: 55f341feee455f84ba90b2453024e159, type: 3}
     - target: {fileID: 587919578137301352, guid: e71d3a680e288534f8480643f6961075, type: 3}
       propertyPath: _forceFire
-      value: 500
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 587919578137301353, guid: e71d3a680e288534f8480643f6961075, type: 3}
       propertyPath: m_Mass
@@ -892,6 +893,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 587919578137301354, guid: e71d3a680e288534f8480643f6961075, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 587919578137301354, guid: e71d3a680e288534f8480643f6961075, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 587919578341058119, guid: e71d3a680e288534f8480643f6961075, type: 3}
