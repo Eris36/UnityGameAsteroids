@@ -20,7 +20,7 @@ namespace Asteroids.Object_Pool
             if (!_rootPool)
             {
                 _rootPool = new
-                    GameObject(NameManager.POOL_AMMUNITION).transform;
+                    GameObject(GameManager.POOL_ENEMY).transform;
             }
         }
         public Enemy GetEnemy(string type)
@@ -45,15 +45,17 @@ namespace Asteroids.Object_Pool
             return _enemyPool.ContainsKey(type) ? _enemyPool[type] :
                 _enemyPool[type] = new HashSet<Enemy>();
         }
+        
+        
         private Enemy GetAsteroid(HashSet<Enemy> enemies)
         {
             var enemy = enemies.FirstOrDefault(a => !a.gameObject.activeSelf);
             if (enemy == null )
             {
-                var laser = Resources.Load<Asteroid>("Enemy/Asteroid");
+                var laser = new AsteroidFactory().Create(new Health(100f, 100f));
                 for (var i = 0; i < _capacityPool; i++)
                 {
-                    var instantiate = Object.Instantiate(laser);
+                    var instantiate = new AsteroidFactory().Create(new Health(100f, 100f));
                     ReturnToPool(instantiate.transform);
                     enemies.Add(instantiate);
                 }
@@ -69,7 +71,6 @@ namespace Asteroids.Object_Pool
             if (enemy == null )
             {
                 var laser = Resources.Load<Mine>("Enemy/Mine");
-                /*var laser = new MineFactory().Create(new Health(100f, 100f));*/
                 for (var i = 0; i < _capacityPool; i++)
                 {
                     var instantiate = new MineFactory().Create(new Health(100f, 100f));

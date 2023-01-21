@@ -1,29 +1,37 @@
-using Asteroids;
 using UnityEngine;
-using UnityEngine.Pool;
-using Random = UnityEngine.Random;
+
 
 namespace Asteroids
 {
     public class Fire : MonoBehaviour
     {
         [SerializeField] private Transform cannon;
-        [SerializeField] private PoolBullletExample poolExample;
+        [SerializeField] private PoolBullletExample poolExampleBullet;
+        [SerializeField] private PoolAsteroidExample poolExampleAsteroid;
+        
+        public Pool<Asteroid> PoolAsteroid;
 
         public int forse = 10;
-
-
-        private void Start()
-        {
-            PoolBullletExample poolExample = GetComponent<PoolBullletExample>();
-        }
-
+        
+        
 
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                poolExample.CreateBullet(cannon, forse);
+                poolExampleBullet.CreateBullet(cannon, forse);
+            }
+            
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (poolExampleAsteroid.HasFreeElement())
+                {
+                    poolExampleAsteroid.CreateAsteroid(cannon, forse);
+                }
+                else
+                {
+                    Debug.Log("Нету них*ра");
+                }
             }
         }
     }

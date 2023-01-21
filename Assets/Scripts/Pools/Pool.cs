@@ -6,15 +6,14 @@ using Object = UnityEngine.Object;
 
 namespace Asteroids
 {
-    public class PoolBulllet<T> where T: MonoBehaviour
+    public class Pool<T> where T: MonoBehaviour
     {
         public T prefab { get; }
         public bool autoExpand { get; set; }
         public  Transform container { get; }
-
         private List<T> pool;
 
-        public PoolBulllet(T prefab, int count, Transform container)
+        public Pool(T prefab, int count, Transform container)
         {
             this.prefab = prefab;
             this.container = container;
@@ -53,6 +52,7 @@ namespace Asteroids
             return false;
         }
 
+        //Проверка свободных объектов для вызова их на сцену
         public T GetFreeElement()
         {
             if (this.HasFreeElement(out var element))
@@ -60,8 +60,20 @@ namespace Asteroids
 
             if (this.autoExpand)
                 return this.CreateObject(true);
-            
             throw new Exception("Пул полный");
+        }
+        
+        //Проверка свободных объектов без вызова на сцену
+        public bool FreeElement()
+        {
+            foreach (var obj in pool)
+            {
+                if (!obj.gameObject.activeInHierarchy)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 

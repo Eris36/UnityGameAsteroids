@@ -13,10 +13,6 @@ namespace Asteroids
         {
             get
             {
-                if (_health.Current <= 0.0f)
-                {
-                    ReturnToPool();
-                }
                 return _health;
             }
             protected set => _health = value;
@@ -28,7 +24,7 @@ namespace Asteroids
             {
                 if (_rotPool == null)
                 {
-                    var find = GameObject.Find(NameManager.POOL_AMMUNITION);
+                    var find = GameObject.Find(GameManager.POOL_ENEMY);
                     _rotPool = find == null ? null : find.transform;
                 }
                 return _rotPool;
@@ -70,7 +66,6 @@ namespace Asteroids
                 Destroy(gameObject);
             }
         }
-        
         
         
         public void DependencyInjectHealth(Health hp)

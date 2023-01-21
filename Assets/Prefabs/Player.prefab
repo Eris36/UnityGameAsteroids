@@ -53,7 +53,7 @@ MonoBehaviour:
   _hp: 100
   _bullet: {fileID: 829579171144935723, guid: 1e395e5d5145cdd46b4dd7d97aa3a510, type: 3}
   _barrel: {fileID: 587919578341058118}
-  _force: 1000
+  _forceFire: 0
 --- !u!50 &587919578137301353
 Rigidbody2D:
   serializedVersion: 4

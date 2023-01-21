@@ -14,28 +14,21 @@ namespace Asteroids
         [SerializeField] private Bullet bulletPrefab;
         private Rigidbody2D _rb;
 
-        public PoolBulllet<Bullet> pool;
+        public Pool<Bullet> pool;
 
         private void Start()
         {
-            this.pool = new PoolBulllet<Bullet>(this.bulletPrefab, this.poolCount, this.transform);
+            this.pool = new Pool<Bullet>(this.bulletPrefab, this.poolCount, this.transform);
             this.pool.autoExpand = this.autoExpand;
         }
 
-        /*private void Update()
-        {
-            if (Input.GetMouseButtonDown(1))
-                this.CreateBullet();
-        }*/
-
         public void CreateBullet(Transform cannon, int force)
         {
-            var Position = new Vector2(Random.Range(-3, 3), Random.Range(-3, 3));
             var bullet = this.pool.GetFreeElement();
             _rb = bullet.GetComponent<Rigidbody2D>();
+            bullet.transform.rotation = cannon.rotation;
             bullet.transform.position = cannon.position;
             _rb.AddForce(cannon.up * force);
-            
         }
     }
 }
