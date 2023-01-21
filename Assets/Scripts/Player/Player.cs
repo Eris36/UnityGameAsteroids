@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace Asteroids
 {
@@ -16,7 +14,6 @@ namespace Asteroids
         private IMove _moveTransform;
         private IRotation _rotation;
         private Rigidbody2D _rb;
-        
 
         private void Awake()
         {
@@ -47,26 +44,18 @@ namespace Asteroids
                     accelerationMove.RemoveAcceleration();
                 }
             }
+        }
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (_hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        public void Damage(int damage)
+        {
 
-        /*if (Input.GetButtonDown("Fire1"))
-        {
-            Attack.AttackNow(_bullet, _barrel, _forceFire);
-        }*/
-    }
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (_hp <= 0)
-        {
-            Destroy(gameObject);
+            _hp = _hp - damage;
         }
     }
-    public void Damage(int damage)
-    {
-
-        _hp = _hp - damage;
-    }
-    
-    }
-    
-
 }

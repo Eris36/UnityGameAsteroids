@@ -1,5 +1,4 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Asteroids
 {
@@ -9,8 +8,7 @@ namespace Asteroids
         [SerializeField] private bool autoExpand = false;
         [SerializeField] private Asteroid asteroidPrefab;
         private Rigidbody2D _rb;
-
-        public Pool<Asteroid> pool;
+        private Pool<Asteroid> pool;
 
         private void Start()
         {
@@ -25,7 +23,6 @@ namespace Asteroids
             bullet.transform.rotation = respawn.rotation;
             bullet.transform.position = respawn.position;
             _rb.AddForce(respawn.up * force);
-            
         }
         
         public bool HasFreeElement()

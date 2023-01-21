@@ -37,8 +37,7 @@ namespace Asteroids
             enemyAsteroid.Health = hp;
             return enemyAsteroid;
         }
-        
-        
+
         public static Mine CreateMinaEnemy(Health hp)
         {
             var enemyMine = Instantiate(Resources.Load<Mine>("Enemy/Mine"));
@@ -66,7 +65,6 @@ namespace Asteroids
                 Destroy(gameObject);
             }
         }
-        
         
         public void DependencyInjectHealth(Health hp)
         {

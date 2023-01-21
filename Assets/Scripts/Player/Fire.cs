@@ -10,11 +10,8 @@ namespace Asteroids
         [SerializeField] private PoolAsteroidExample poolExampleAsteroid;
         
         public Pool<Asteroid> PoolAsteroid;
-
         public int forse = 10;
         
-        
-
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
@@ -30,7 +27,7 @@ namespace Asteroids
                 }
                 else
                 {
-                    Debug.Log("Нету них*ра");
+                    Debug.Log("Нету свободных");
                 }
             }
         }

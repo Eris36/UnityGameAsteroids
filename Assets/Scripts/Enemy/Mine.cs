@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,7 +11,6 @@ namespace Asteroids
         public string health;
         public int damage = 20;
         
-
         private void Start()
         {
             var healthInStart = Health.Current;
