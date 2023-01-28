@@ -7,14 +7,19 @@ namespace Asteroids
     {
 
         [SerializeField] private PoolAsteroidExample poolExampleAsteroid;
-        [SerializeField] private int forse = 10000;
+        [SerializeField] private int forse = 100000;
         [SerializeField] private Transform[] pointRespawn;
+        [SerializeField] private GameObject XION;
+        
+
+        private Rigidbody2D _rb;
         
         void Start()
         {
             StartCoroutine(AddAsteroids());
+            StartCoroutine(AddXION());
         }
-
+        
         IEnumerator AddAsteroids()
         {
             while(true)
@@ -25,6 +30,16 @@ namespace Asteroids
                     int point = Random.Range(0, pointRespawn.Length);
                     poolExampleAsteroid.CreateAsteroid(pointRespawn[point], forse);
                 }
+            }
+        }
+        
+        IEnumerator AddXION()
+        {
+            while(true)
+            {
+                yield return new WaitForSeconds(3f);
+                int point = Random.Range(0, pointRespawn.Length);
+                XION.GetComponent<Spawner>().GetMaket(pointRespawn[point]);
             }
         }
     }

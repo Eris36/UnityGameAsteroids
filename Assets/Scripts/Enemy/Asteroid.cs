@@ -1,12 +1,14 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Asteroids
 {
+    [Serializable]
     public sealed class Asteroid : Enemy
     {
         private Rigidbody2D _rb;
-        private int _speed;
+        public int _speed;
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();

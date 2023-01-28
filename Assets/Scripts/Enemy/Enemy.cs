@@ -1,8 +1,10 @@
+using System;
 using Asteroids.Object_Pool;
 using UnityEngine;
 
 namespace Asteroids
 {
+    [Serializable]
     public abstract class Enemy : MonoBehaviour
     {
         public static IEnemyFactory Factory;

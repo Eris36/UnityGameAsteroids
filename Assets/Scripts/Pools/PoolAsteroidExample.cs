@@ -18,10 +18,10 @@ namespace Asteroids
         
         public void CreateAsteroid(Transform respawn, int force)
         {
-            var bullet = this.pool.GetFreeElement();
-            _rb = bullet.GetComponent<Rigidbody2D>();
-            bullet.transform.rotation = respawn.rotation;
-            bullet.transform.position = respawn.position;
+            var asteroid = this.pool.GetFreeElement();
+            _rb = asteroid.GetComponent<Rigidbody2D>();
+            asteroid.transform.rotation = respawn.rotation;
+            asteroid.transform.position = respawn.position;
             _rb.AddForce(respawn.up * force);
         }
         
