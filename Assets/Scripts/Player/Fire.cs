@@ -8,8 +8,11 @@ namespace Asteroids
         [SerializeField] private Transform cannon;
         [SerializeField] private PoolBullletExample poolExampleBullet;
         [SerializeField] private PoolAsteroidExample poolExampleAsteroid;
+        [SerializeField] private Example fire2;
+        
         
         public Pool<Asteroid> PoolAsteroid;
+        
         public int forse = 10;
         
         private void Update()
@@ -21,14 +24,7 @@ namespace Asteroids
             
             if (Input.GetMouseButtonDown(1))
             {
-                if (poolExampleAsteroid.HasFreeElement())
-                {
-                    poolExampleAsteroid.CreateAsteroid(cannon, forse);
-                }
-                else
-                {
-                    Debug.Log("Нету свободных");
-                }
+                fire2.FireConnon2();
             }
         }
     }

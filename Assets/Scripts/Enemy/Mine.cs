@@ -31,6 +31,9 @@ namespace Asteroids
                     other.gameObject.GetComponent<Player>().Damage(damage);
                     gameObject.SetActive(false);
                     break;
+                case "Bullet":
+                    gameObject.SetActive(false);
+                    break;
             }
         }
     }
