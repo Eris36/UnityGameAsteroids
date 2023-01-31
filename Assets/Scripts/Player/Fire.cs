@@ -7,7 +7,6 @@ namespace Asteroids
     {
         [SerializeField] private Transform cannon;
         [SerializeField] private PoolBullletExample poolExampleBullet;
-        [SerializeField] private PoolAsteroidExample poolExampleAsteroid;
         [SerializeField] private Example fire2;
         
         
