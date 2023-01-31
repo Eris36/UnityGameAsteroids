@@ -8,6 +8,8 @@ namespace Asteroids
         [SerializeField] private Transform cannon;
         [SerializeField] private PoolBullletExample poolExampleBullet;
         [SerializeField] private Example fire2;
+        [SerializeField] private bool fuse = false;
+        
         
         
         public Pool<Asteroid> PoolAsteroid;
@@ -16,12 +18,12 @@ namespace Asteroids
         
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) & !fuse)
             {
                 poolExampleBullet.CreateBullet(cannon, forse);
             }
             
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) & !fuse)
             {
                 fire2.FireConnon2();
             }
