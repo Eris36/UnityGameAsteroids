@@ -57,5 +57,16 @@ namespace Asteroids
 
             _hp = _hp - damage;
         }
+
+    
+        //Данный модификар выполнен для шаблона Цепочки зависимостей
+        public void AcceleratorSpeed(float value)
+        {
+            _speed = _speed + value;
+            _hp = _hp + value;
+        }
+        
+        
+        
     }
 }
