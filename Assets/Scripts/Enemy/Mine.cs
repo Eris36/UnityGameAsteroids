@@ -5,6 +5,7 @@ namespace Asteroids
 {
     public sealed class Mine : Enemy
     {
+        [SerializeField] private GameStarter gameStart;
         private Rigidbody2D _rb;
         private int _speed;
         private Transform respawn;
@@ -21,6 +22,17 @@ namespace Asteroids
             _speed = Random.Range(3000, 5000);
             Vector3 moveDirection = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0f);
             _rb.AddForce(moveDirection * _speed);
+            
+            GameObject GameStarterObject = GameObject.FindWithTag("GameStarted");
+            if (GameStarterObject != null)
+            {
+                gameStart = GameStarterObject.GetComponent<GameStarter>();
+            }
+            else
+            {
+                Debug.Log("GameStarted не найден");
+            }
+
         }
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -32,7 +44,9 @@ namespace Asteroids
                     gameObject.SetActive(false);
                     break;
                 case "Bullet":
+                    gameStart.AddScore(100);
                     gameObject.SetActive(false);
+                    other.gameObject.SetActive(false);;
                     break;
             }
         }

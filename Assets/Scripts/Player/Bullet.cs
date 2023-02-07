@@ -1,21 +1,17 @@
+using System;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace Asteroids
 {
     
-    public void OnBecameInvisible() {
-        // После выхода объекта за границы экрана возвращаем его в пул
-        gameObject.SetActive(false);
-    }
-    
-    private void OnTriggerEnter2D(Collider2D other)
+    public class Bullet : MonoBehaviour
     {
-        switch (other.tag)
-        {
-            case "Enemy" :
-                other.gameObject.SetActive(false);
-                gameObject.SetActive(false);
-                break;
+
+        public void OnBecameInvisible() {
+            // После выхода объекта за границы экрана возвращаем его в пул
+            gameObject.SetActive(false);
         }
+        
     }
 }
+
