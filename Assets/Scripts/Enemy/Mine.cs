@@ -46,7 +46,8 @@ namespace Asteroids
                 case "Bullet":
                     gameStart.AddScore(100);
                     gameObject.SetActive(false);
-                    other.gameObject.SetActive(false);;
+                    other.gameObject.SetActive(false);
+                    gameStart.DestroyMine();
                     break;
             }
         }
