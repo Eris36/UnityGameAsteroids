@@ -48,7 +48,6 @@ namespace Asteroids
         public void DestroyMine()
         {
             PlayerDestroyMine?.Invoke();
-            Debug.Log("Мина убита");
         }
     }
 }

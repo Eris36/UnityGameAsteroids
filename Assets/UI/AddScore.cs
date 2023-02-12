@@ -1,17 +1,30 @@
-using Asteroids;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class AddScore : MonoBehaviour
+namespace Asteroids
 {
-    public void Add(GameStarter _gameStarter)
+    public class AddScore:MonoBehaviour
     {
-        _gameStarter.PlayerDestroyMine += Test;
-        Debug.Log("Слушатель подписался");
-    }
+        private Vector3 startPosition;
+        [SerializeField] private Text _text;
+        
 
-    private void Test()
-    {
-        Debug.Log("Сработало!");
-    }
+        public void Add(GameStarter _gameStarter)
+        {
+            _gameStarter.PlayerDestroyMine += ViewOn;
+        }
 
+        private void ViewOn()
+        {
+            /*_text.enabled = true;*/
+            Debug.Log("Сообщение из Наблюдателя: Мина уничтоже");
+        }
+
+        void Remove(GameStarter _gameStarter)
+        {
+            _gameStarter.PlayerDestroyMine -= ViewOn;
+        }
+    }
 }
+

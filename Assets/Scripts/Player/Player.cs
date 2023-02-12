@@ -14,10 +14,13 @@ namespace Asteroids
         private IMove _moveTransform;
         private IRotation _rotation;
         private Rigidbody2D _rb;
+        private Context statusSmoke;
+        private bool modeEmergency;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            
         }
 
         private void Start()
@@ -25,6 +28,8 @@ namespace Asteroids
             _camera = Camera.main;
             _moveTransform = new AccelerationMove(transform, _speed, _acceleration, _rb);
             _rotation = new RotationShip(transform);
+            statusSmoke = new Context(new ConcreteStateA());
+            
         }
         private void Update()
         {
@@ -51,10 +56,28 @@ namespace Asteroids
             {
                 Destroy(gameObject);
             }
+            if (_hp <= 50)
+            {
+                if (!modeEmergency)
+                {
+                    statusSmoke.Request();
+                    modeEmergency = true;
+                }
+                
+            }
+            if (_hp >= 50)
+            {
+                if (modeEmergency)
+                {
+                    statusSmoke.Request();
+                    modeEmergency = false;
+                }
+            }
         }
+        
+        
         public void Damage(int damage)
         {
-
             _hp = _hp - damage;
         }
 
